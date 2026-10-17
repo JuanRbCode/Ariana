@@ -232,6 +232,10 @@
   </svg>
 
   <div class="copy">
+    <button onclick="document.getElementById('musica').play(); this.style.display='none';" 
+         style="margin-block: 15px; padding: 12px 24px; border-radius: 24px; border: none; background: var(--coral); color: var(--plum); font-weight: bold; font-family: inherit; cursor: pointer; box-shadow: 0 4px 12px rgba(247, 163, 184, 0.4);">
+   🎵 Tócame :D
+ </button>
     <h1>Feliz cumpleaños, Ariana</h1>
     <p class="message">¡Feliz cumpleaños a una mujer hermosa! Ojalá que este año que comienzas sea un año de alcanzar más y más sueños, ¡y que todos puedan presenciarlo!</p>
     <p class="sign">Con todo mi cariño</p>
@@ -241,7 +245,7 @@
 </main>
  <img src="https://i.pinimg.com/736x/cd/75/3f/cd753f9073e00ef698a4de4b011925e7.jpg"/>
  <p class="message">Pa ti <3</p>
- <audio src="/audio.mp3" autoplay loop></audio>
+<audio id="musica" src="./audio.mp3" loop></audio>
  
 </body>
 </html>
