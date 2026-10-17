@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Feliz cumpleaños, Ariana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #F4D6DE;
+    --plum: #3D1A2E;
+    --cream: #FCEFE8;
+    --coral: #F7A3B8;
+    --rose: #E8477A;
+  }
+
+  img{
+    width: 50%;
+    border-radius: 12px;
+    border:none;
+    margin-top: 20px;
+
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --blush: #22101B;
+      --plum: #4A2139;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --blush: #22101B;
+    --plum: #4A2139;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  body {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding-top: max(24px, env(safe-area-inset-top));
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+    padding-left: 20px;
+    padding-right: 20px;
+    background: var(--blush);
+    color: var(--cream);
+    font-family: Karla, system-ui, sans-serif;
+  }
+
+  .card {
+    position: relative;
+    width: min(100%, 380px);
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 52px;
+    background: var(--plum);
+    border-radius: 50% 50% 28px 28px / 34% 34% 28px 28px;
+    box-shadow: 0 40px 70px -36px rgba(61, 26, 46, .6);
+    overflow: hidden;
+  }
+
+  .bouquet {
+    width: 82%;
+    max-width: 320px;
+    height: auto;
+    margin-top: 40px;
+    overflow: visible;
+  }
+
+  .bloom {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    opacity: 0;
+    animation: rise 1.3s cubic-bezier(.2, .8, .2, 1) forwards;
+  }
+
+  .b-center { animation-delay: .1s; }
+  .b-left   { animation-delay: .3s; }
+  .b-right  { animation-delay: .45s; }
+
+  .sway {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: sway 4.6s ease-in-out 1.8s infinite alternate;
+  }
+
+  .sway-left  { animation-duration: 5.2s; animation-delay: 2.2s; }
+  .sway-right { animation-duration: 4.1s; animation-delay: 2.5s; }
+
+  @keyframes sway {
+    from { transform: rotate(-2.5deg); }
+    to   { transform: rotate(2.5deg); }
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(60px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .copy {
+    position: relative;
+    z-index: 1;
+    padding: 0 32px;
+    margin-top: 14px;
+    opacity: 0;
+    animation: fade 1.2s ease .9s forwards;
+  }
+
+  .petal {
+    position: absolute;
+    top: -24px;
+    left: var(--x);
+    width: 12px;
+    height: 16px;
+    border-radius: 0 70% 70% 70%;
+    background: var(--c, #F7A3B8);
+    opacity: 0;
+    pointer-events: none;
+    animation: petal-fall var(--d, 10s) linear var(--delay, 0s) infinite;
+  }
+
+  @keyframes petal-fall {
+    0%   { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+    10%  { opacity: .7; }
+    50%  { transform: translate(18px, 300px) rotate(180deg); }
+    90%  { opacity: .7; }
+    100% { opacity: 0; transform: translate(-14px, 620px) rotate(360deg); }
+  }
+
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  h1 {
+    font-family: Fraunces, Georgia, serif;
+    font-variation-settings: "opsz" 144;
+    font-weight: 400;
+    font-size: clamp(2.3rem, 10vw, 3.1rem);
+    line-height: 1.08;
+    letter-spacing: -0.005em;
+    color: var(--cream);
+    text-shadow: 0 2px 22px rgba(232, 71, 122, .45);
+    text-wrap: balance;
+  }
+
+  .message {
+    margin-top: 22px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 30ch;
+    font-size: 1.12rem;
+    line-height: 1.8;
+    letter-spacing: .01em;
+    color: rgba(252, 239, 232, .94);
+    text-wrap: pretty;
+  }
+
+  .sign {
+    margin-top: 28px;
+    font-family: Fraunces, Georgia, serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--coral);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bloom, .copy {
+      animation: none;
+      opacity: 1;
+    }
+
+    .sway {
+      animation: none;
+    }
+
+    .petal {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="tulip" viewBox="0 0 60 120">
+      <path d="M10 44 C8 24 15 12 21 9 L24 25 L30 4 L36 25 L39 9 C45 12 52 24 50 44 C49 62 41 72 30 72 C19 72 11 62 10 44 Z"/>
+      <path d="M39 9 C45 12 52 24 50 44 C49 62 41 72 30 72 C38 64 42 52 42 40 C42 28 41 18 39 9 Z" fill="#000" fill-opacity=".14"/>
+      <path d="M17 36 C17 50 20 60 25 66 C21 56 20 46 21 36 Z" fill="#fff" fill-opacity=".3"/>
+      <path d="M30 72 Q29 96 31 118" fill="none" stroke="#7FAF8E" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M30 104 C20 98 14 86 13 72 C25 78 31 90 30 104 Z" fill="#7FAF8E"/>
+      <path d="M31 96 C40 90 47 80 48 66 C37 74 31 84 31 96 Z" fill="#7FAF8E"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main class="card">
+  <span class="petal" style="--x:6%;--c:#F7A3B8;--d:11s;--delay:-1s"></span>
+  <span class="petal" style="--x:20%;--c:#E8477A;--d:13s;--delay:-6s"></span>
+  <span class="petal" style="--x:34%;--c:#FCEFE8;--d:10s;--delay:-3s"></span>
+  <span class="petal" style="--x:52%;--c:#F7A3B8;--d:12s;--delay:-8s"></span>
+  <span class="petal" style="--x:68%;--c:#E8477A;--d:11.5s;--delay:-4.5s"></span>
+  <span class="petal" style="--x:82%;--c:#FCEFE8;--d:14s;--delay:-10s"></span>
+  <span class="petal" style="--x:92%;--c:#F7A3B8;--d:9.5s;--delay:-2.5s"></span>
+  <svg class="bouquet" viewBox="0 0 320 250" role="img" aria-label="Ramo de tulipanes">
+    <g transform="rotate(-12 94 240)">
+      <g class="bloom b-left">
+        <use class="sway sway-left" href="#tulip" x="52" y="75" width="84" height="168" fill="#F7A3B8"/>
+      </g>
+    </g>
+    <g transform="rotate(12 226 240)">
+      <g class="bloom b-right">
+        <use class="sway sway-right" href="#tulip" x="184" y="75" width="84" height="168" fill="#FCEFE8"/>
+      </g>
+    </g>
+    <g class="bloom b-center">
+      <use class="sway" href="#tulip" x="105" y="24" width="110" height="220" fill="#E8477A"/>
+    </g>
+  </svg>
+
+  <div class="copy">
+    <h1>Feliz cumpleaños, Ariana</h1>
+    <p class="message">¡Feliz cumpleaños a una mujer hermosa! Ojalá que este año que comienzas sea un año de alcanzar más y más sueños, ¡y que todos puedan presenciarlo!</p>
+    <p class="sign">Con todo mi cariño</p>
+   
+  </div>
+  
+</main>
+ <img src="https://i.pinimg.com/736x/cd/75/3f/cd753f9073e00ef698a4de4b011925e7.jpg"/>
+ <p class="message">Pa ti <3</p>
+ <audio src="/audio.mp3" autoplay loop></audio>
+ 
+</body>
+</html>
